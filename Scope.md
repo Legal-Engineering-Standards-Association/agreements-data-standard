@@ -1,6 +1,6 @@
 # Scope
 
-This document describes what is — and is not — covered by the Agreements Data Standard under development by the Legal Engineering Standards Association (LESA), drawing on the prior *Signet Data Standard*. It clarifies the boundaries, intended use cases, and limitations of the standard.  
+This document describes what is — and is not — covered by the Agreements Data Standard under development by the Legal Engineering Standards Association (LESA), drawing on the prior *[Signet Data Standard](https://github.com/CNSLabs/signet-data-standard)*. It clarifies the boundaries, intended use cases, and limitations of the standard.  
 
 ---
 
@@ -66,3 +66,4 @@ The standard is designed for:
 - **Version 1.x** is expected to cover a core subset of fields and agreement types; not all possible clause types or edge cases will be covered initially.  
 - Backwards compatibility will be prioritised, but early versions may need migrations.  
 - Implementation details (data storage, APIs, schema formats — JSON, RDF, XML etc.) are outside normative specification, though guidance may be provided.  
+
