@@ -20,7 +20,7 @@ The Association includes the following roles:
 
 ## 3.	Ways of Working.
 
-Inspired by [ANSI’s Essential Requirements for Due Process](https://www.ansi.org/american-national-standards/ans-introduction/essential-requirements), the Association adheres to consensus-based due process requirements.  These requirements apply to activities related to the development of consensus for approval, revision, reaffirmation, and withdrawal of the agreements data standard specification.  Due process means that any person (organization, company, government agency, individual, etc.) with a direct and material interest has a right to participate by: a) expressing a position and its basis, b) having that position considered, and c) having the right to appeal. Due process allows for equity and fair play. The following constitute the minimum acceptable due process requirements for the development of consensus.
+Inspired by [ANSI’s Essential Requirements for Due Process](https://www.ansi.org/american-national-standards/ans-introduction/essential-requirements), the Association adheres to consensus-based due process requirements.  These requirements apply to activities related to the development of consensus for approval, revision, reaffirmation, and withdrawal of the [Agreements Data Standard Specification](./signet-data-standard).  Due process means that any person (organization, company, government agency, individual, etc.) with a direct and material interest has a right to participate by: a) expressing a position and its basis, b) having that position considered, and c) having the right to appeal. Due process allows for equity and fair play. The following constitute the minimum acceptable due process requirements for the development of consensus.
 
 **3.1.	Openness.**  Participation shall be open to all persons who are directly and materially affected by the activity in question. There shall be no undue financial barriers to participation. Voting membership on the consensus body shall not be conditional upon membership in any organization, nor unreasonably restricted on the basis of technical qualifications or other such requirements.
 
@@ -49,4 +49,5 @@ Inspired by [ANSI’s Essential Requirements for Due Process](https://www.ansi.o
 ## 5. Non-Confidential, Restricted Disclosure.
 
 Information disclosed in connection with any Association activity, including but not limited to meetings, Contributions, and submissions, is not confidential, regardless of any markings or statements to the contrary.  Notwithstanding the foregoing, if the Association is collaborating via a private repository, the Participants will not make any public disclosures of that information contained in that private repository without the Approval of the Association.
+
 
