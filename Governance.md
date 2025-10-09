@@ -14,13 +14,13 @@ The Association includes the following roles:
 
 ## 2.	Decision Making.
 
-**2.1.	Consensus-Based Decision Making.**  Teh Association makes decisions through a consensus process (“Approval” or “Approved”).  While the agreement of all Participants is preferred, it is not required for consensus.  Rather, the Maintainer will determine consensus based on their good faith consideration of a number of factors, including the dominant view of the Association Participants and nature of support and objections.  The Maintainer will document evidence of consensus in accordance with these requirements. 
+**2.1.	Consensus-Based Decision Making.**  The Association makes decisions through a consensus process (“Approval” or “Approved”).  While the agreement of all Participants is preferred, it is not required for consensus.  Rather, the Maintainer will determine consensus based on their good faith consideration of a number of factors, including the dominant view of the Association Participants and nature of support and objections.  The Maintainer will document evidence of consensus in accordance with these requirements. 
 
-**2.2.	Appeal Process.**  Decisions may be appealed be via a pull request or an issue, and that appeal will be considered by the Maintainer in good faith, who will respond in writing within a reasonable time.
+**2.2.	Appeal Process.**  Decisions may be appealed via a pull request or an issue, and that appeal will be considered by the Maintainer in good faith, who will respond in writing within a reasonable time.
 
 ## 3.	Ways of Working.
 
-Inspired by [ANSI’s Essential Requirements for Due Process](https://share.ansi.org/Shared%20Documents/Standards%20Activities/American%20National%20Standards/Procedures,%20Guides,%20and%20Forms/2020_ANSI_Essential_Requirements.pdf), the Association adheres to consensus-based due process requirements.  These requirements apply to activities related to the development of consensus for approval, revision, reaffirmation, and withdrawal of the agreements data standard specification.  Due process means that any person (organization, company, government agency, individual, etc.) with a direct and material interest has a right to participate by: a) expressing a position and its basis, b) having that position considered, and c) having the right to appeal. Due process allows for equity and fair play. The following constitute the minimum acceptable due process requirements for the development of consensus.
+Inspired by [ANSI’s Essential Requirements for Due Process](https://www.ansi.org/american-national-standards/ans-introduction/essential-requirements), the Association adheres to consensus-based due process requirements.  These requirements apply to activities related to the development of consensus for approval, revision, reaffirmation, and withdrawal of the agreements data standard specification.  Due process means that any person (organization, company, government agency, individual, etc.) with a direct and material interest has a right to participate by: a) expressing a position and its basis, b) having that position considered, and c) having the right to appeal. Due process allows for equity and fair play. The following constitute the minimum acceptable due process requirements for the development of consensus.
 
 **3.1.	Openness.**  Participation shall be open to all persons who are directly and materially affected by the activity in question. There shall be no undue financial barriers to participation. Voting membership on the consensus body shall not be conditional upon membership in any organization, nor unreasonably restricted on the basis of technical qualifications or other such requirements.
 
@@ -49,3 +49,4 @@ Inspired by [ANSI’s Essential Requirements for Due Process](https://share.ansi
 ## 5. Non-Confidential, Restricted Disclosure.
 
 Information disclosed in connection with any Association activity, including but not limited to meetings, Contributions, and submissions, is not confidential, regardless of any markings or statements to the contrary.  Notwithstanding the foregoing, if the Association is collaborating via a private repository, the Participants will not make any public disclosures of that information contained in that private repository without the Approval of the Association.
+
