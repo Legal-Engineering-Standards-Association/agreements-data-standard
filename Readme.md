@@ -1,23 +1,81 @@
-# Community Specification
+# LESA Technical Specification
+### Legal Engineering Standards Association (LESA)
 
-## What is the Community Specification For?
+This repository hosts the formal technical specification being developed by the **Legal Engineering Standards Association (LESA)**, under the **Community Specification License 1.0**.
 
-The Community Specification process is a repository-based approach for creating standards and specifications in version control systems, such as Git. 
+---
 
-## What is the benefit?
+## Introduction
 
-The Community Specification allows you to start a specification development effort as easily as an open source project.  The Community Specification incorporates the terms and processes required for standards and specification development, including legal terms, intellectual property issues, due process, and governance.  It also provides the mechanisms to allow your project to grow and scale.  For example, the Community Specification provides the basis to take your specification to other standards bodies, including international standards bodies, for formal standardization if your community desires to pursue those options.
+The purpose of this repository is to serve as the authoritative source for the *Signet* technical standard being developed by LESA. The specification defines normative requirements, models, and interfaces that enable consistent, interoperable, and verifiable implementations of legal engineering processes, data structures, and technologies.
 
-## How to get started?
+The work aims to ensure interoperability and alignment between legal, regulatory, and computational systems—establishing a common foundation for legal-tech innovation.
 
-Instructions for using the Community Specification are included in the ..Getting Started.md file.
+## License
 
-## Could I just use an open source license for my specifications? Why should I use a specification license?
-
-Open source is collaboration around a specific codebase, while specifications provide a blueprint developers implement in different ways in many different codebases. Accordingly, open source licenses provide terms to use and modify a particular codebase and specification licenses are designed to provide terms for separate independent implementations of the specification. Because of this, if you use an open source license for specifications, people implementing those specifications may be doing so without the meaningful copyright or patent grants that you expect.
-
-A second difference is that common open source software and specification licenses tend to have different coverage scopes for intellectual property terms. Open source licenses generally grant terms scoped only to a contributor's contributions. Specification licenses, however, generally cover implementations of the entire specification, regardless of who made the actual contribution. Because the specification will often be developed with contributions from multiple organizations, the various contributing organizations will often want to review and approve the full specification before extending patent commitments to the final, combined result. 
-
-## Who developed the Community Specification
+This project and all its materials are made available under the **Community Specification License 1.0 (CSL 1.0)**.
 
 The Community Specification has been developed via the [Joint Development Foundation](http://www.jointdevelopment.org), with inspiration from the [Open Web Foundation agreements](http://openwebfoundation.org) and the [Alliance for Open Media Patent License 1.0](http://aomedia.org/license/patent-license/).
+
+See [`LICENSE`](LICENSE) in this repository for other open source licenses udner which this specification is developed and distributed.
+
+## Implementation Guidance
+
+The specification defines concepts, structures, and conformance requirements without prescribing implementation technology.  
+Implementers are encouraged to:
+
+- Identify required and optional compliance levels.  
+- Refer to accompanying open source reference implementations.  
+- Report interoperability feedback through GitHub Issues.  
+- Participate in community discussions during review cycles.
+
+---
+
+## Contributing
+
+Community participation is central to LESA’s development process.  
+To contribute:
+
+1. Fork this repository.  
+2. Create a feature branch: `feature/<description>`.  
+3. Submit a pull request referencing the related issue.  
+4. Include rationale and references where applicable.
+
+See `Contributing.md` for more details on opening a pull request.
+
+All contributions are reviewed by the LESA maintainers before acceptance. See `Governance.md` for more details.
+
+---
+
+## Issue Management
+
+Use [GitHub Issues](https://github.com/Legal-Engineering-Standards-Association/agreements-data-standard/issues) to report:
+
+- Editorial or technical corrections (`errata`)  
+- Suggested enhancements or extensions (`enhancement`)  
+- Implementation experiences or feedback (`feedback`)  
+
+Please use clear titles and provide sufficient context for reviewers.
+
+---
+
+## Governance and Contact
+
+The specification is developed and maintained by the **Legal Engineering Standards Association (LESA)**.  
+Governance is exercised by the LESA Technical Committee under the association’s document governance process, guided by the Community Specification License.
+
+See `Governance.md` for more details.
+
+For questions or participation requests, you can find details for individuals to contact in `Notices.md`
+Website: [https://lesa.law](https://lesa.law)
+
+---
+
+## Citation
+
+When referencing this work, please cite as:
+
+> Legal Engineering Standards Association (LESA).  
+> *Signet Data Standard*. Version X.Y.Z.  
+> Community Specification License 1.0.  
+> Available at: [[https://github.com/lesa-law/](https://github.com/Legal-Engineering-Standards-Association)]([https://github.com/lesa-law/](https://github.com/Legal-Engineering-Standards-Association))
