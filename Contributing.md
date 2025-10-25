@@ -1,12 +1,12 @@
 # Community Specification Contribution Policy 1.0
 
-This document provides the contribution policy for specifications and other documents developed using the Community Specification process in a repository (each a “Working Group”).  Additional or alternate contribution policies may be adopted and documented by the Working Group.
+This document provides the contribution policy for specifications and other documents developed using the Community Specification process in each repository of the Legal Engineering Standards Association organization (“the Association”).  Additional or alternate contribution policies may be adopted and documented by the Association.
 
 ## 1.	Contribution Guidelines. 
 
-This Working Group accepts contributions via pull requests. The following section outlines the process for merging contributions to the specification
+This Association accepts contributions via pull requests. The following section outlines the process for merging contributions to the specification
 
-**1.1.	Issues.**  Issues are used as the primary method for tracking anything to do with this specification Working Group.
+**1.1.	Issues.**  Issues are used as the primary method for tracking anything to do with this specification Assocation.
 
 **1.1.1.	Issue Types.**  There are three types of issues (each with their own corresponding label):
 
@@ -40,7 +40,7 @@ o	"Proposal" and "Discussion" issues should stay open until resolved.
 
 ## 3.	How to Contribute a Patch.
 
-The Working Group uses pull requests to track changes. To submit a change to the specification:
+The Assocation uses pull requests to track changes. To submit a change to the specification:
 
 **3.1	Fork the Repo, modify the Specification to Address the Issue.**
 
@@ -83,3 +83,4 @@ o	A pull request should stay open until a Maintainer has marked the pull request
 o	Pull requests can be closed by the author without merging.
 
 o	Pull requests may be closed by a Maintainer if the decision is made that it is not going to be merged.
+
