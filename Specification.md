@@ -30,7 +30,7 @@ This specification is subject to the Community Specification License 1.0.
 8. Content Representation
 9. Execution Model
 10. Template Structure
-11. Verifiable Credential Wrapper
+11. Verifiable Credential Wrper
 12. Security Considerations
 Annex A (informative) Example Agreement
 Annex B (normative) JSON Schemas
@@ -185,7 +185,7 @@ Table 1 — Metadata properties
 | id | REQUIRED | string | unique identifier for the agreement instance; SHOULD be a DID (e.g., `did:example:…`). |
 | templateId | REQUIRED for instances | string | identifier for the template; SHOULD be a DID with method `template`. |
 | version | REQUIRED | string | semantic version identifier of the template or instance. |
-| createdAt | REQUIRED | date‑time | creation timestamp in ISO 8601\. |
+| createdAt | REQUIRED | date‑time | creation timestamp in ISO 8601. |
 | name | REQUIRED | string | human‑readable name of the template. |
 | author | REQUIRED | string | author or organization name. |
 | description | REQUIRED | string | textual description of scope and purpose. |
@@ -321,7 +321,7 @@ When using W3C Verifiable Credentials, the `proof` object MUST include cryptogra
 
 ## Annex A. (informative) Example Agreement
 
-Examples of Markdown and MDAST content, variables, and a complete JSON template are provided.
+Examples of Markdown and MDAST content, variables, and a complete JSON template are provided in the original source code repository for the Aignet Agreements Protoocol, copies of which can be located at : [https://github.com/Legal-Engineering-Standards-Association/signet-data-standard/tree/master/templates](https://github.com/Legal-Engineering-Standards-Association/signet-data-standard/tree/master/templates)
 
 ---
 
@@ -585,7 +585,7 @@ A conforming producer or consumer MUST validate objects against the schemas abov
 
 This annex is informative. Profiles constrain options in Clauses 6–11 to promote interoperability. A profile identifies mandatory algorithms, encodings, and identifier methods. The keyword MUST in this annex applies within the scope of a given profile.
 
-### D.1. EVM \+ EIP‑712 Profile (AP-evm-712)
+### D.1. EVM + EIP‑712 Profile
 
 Scope: agreements whose inputs and proofs are produced on EVM-compatible chains, using EIP‑712 signing.
 
@@ -606,7 +606,7 @@ D.1.4. Verification
 
 Consumers MUST reconstruct the EIP‑712 digest from the declared domain and types and recover the signer address. If `inputs.<id>.signer` is present, the recovered address MUST match.
 
-### D.2. DID Methods Profile (AP-did)
+### D.2. DID Methods Profile
 
 Scope: DID usage for templates and issuers.
 
@@ -619,7 +619,7 @@ D.2.2. Requirements
  * Producers SHOULD publish template metadata at a stable URL resolvable from `did:web`.  
  * Consumers SHOULD resolve DID Documents to obtain verification methods and key material for proof validation.
 
-### D.3. VC Packaging Profile (AP-vc)
+### D.3. VC Packaging Profile
 
 Scope: packaging an agreement as a W3C Verifiable Credential.
 
