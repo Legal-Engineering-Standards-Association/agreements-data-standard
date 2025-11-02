@@ -2,7 +2,7 @@
 
 ### Abstract
 
-This document specifies the Agreements Protocol, a JSON-based data standard for the creation, execution, and verification of digital agreements. The protocol defines structures for metadata, variables, content representation, execution modeling, and optional verifiable credential packaging. Its purpose is to promote interoperability among legal and technical systems that manage digitally signed agreements, enabling consistent data exchange, validation, and proof verification across implementations.
+This document specifies the Signet Agreements Protocol, a JSON-based data standard for the creation, execution, and verification of digital agreements. The protocol defines structures for metadata, variables, content representation, execution modeling, and optional verifiable credential packaging. Its purpose is to promote interoperability among legal and technical systems that manage digitally signed agreements, enabling consistent data exchange, validation, and proof verification across implementations.
 
 ### Revision History
 
@@ -43,13 +43,11 @@ Bibliography
 
 ## Foreword
 
-Attention is drawn to the possibility that some of the elements of this document may be the subject of patent rights. No party shall be held responsible for identifying any or all such patent rights.
+This document was prepared by the Legal Engineering Standards Association under the Community Specification License 1.0
 
-Any trade name used in this document is information given for the convenience of users and does not constitute an endorsement.
+All source code included in this repository, as well as any sample or reference code included in the specification itself, is licensed under the Apache License, Version 2.0.
 
-This document was prepared by the Agreements Protocol community under the Legal Engineering Standards Association.
-
-Any feedback or questions on this document should be directed to the specification repository.
+Any feedback or questions on this document should be directed to the associated discussion forum.
 
 THESE MATERIALS ARE PROVIDED “AS IS.” The Contributors and Licensees expressly disclaim any warranties (express, implied, or otherwise), including implied warranties of merchantability, non‑infringement, fitness for a particular purpose, or title, related to the materials. The entire risk as to implementing or otherwise using the materials is assumed by the implementer and user. IN NO EVENT WILL THE CONTRIBUTORS OR LICENSEES BE LIABLE TO ANY OTHER PARTY FOR LOST PROFITS OR ANY FORM OF INDIRECT, SPECIAL, INCIDENTAL, OR CONSEQUENTIAL DAMAGES OF ANY CHARACTER FROM ANY CAUSES OF ACTION OF ANY KIND WITH RESPECT TO THIS DELIVERABLE OR ITS GOVERNING AGREEMENT, WHETHER BASED ON BREACH OF CONTRACT, TORT (INCLUDING NEGLIGENCE), OR OTHERWISE, AND WHETHER OR NOT THE OTHER MEMBER HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
@@ -57,7 +55,7 @@ THESE MATERIALS ARE PROVIDED “AS IS.” The Contributors and Licensees express
 
 ## Introduction
 
-This specification defines the Agreements Protocol, a JSON‑based standard for creating and executing legally binding agreements with blockchain‑derived proofs and verifiable state transitions. The protocol provides a standardized way to: (a) define agreement metadata; (b) declare typed variables; (c) represent agreement content with variable interpolation; (d) model execution as a deterministic finite state machine (DFSM); and (e) package agreements for issuance as W3C Verifiable Credentials.
+This specification defines the Signet Agreements Protocol, a JSON‑based standard for creating and executing legally binding agreements with blockchain‑derived proofs and verifiable state transitions. The protocol provides a standardized way to: (a) define agreement metadata; (b) declare typed variables; (c) represent agreement content with variable interpolation; (d) model execution as a deterministic finite state machine (DFSM); and (e) package agreements for issuance as W3C Verifiable Credentials.
 
 The Agreements Protocol is technology‑neutral with respect to blockchain networks and cryptographic primitives, while providing bindings for widely used mechanisms such as EIP‑712 signatures and EVM transaction receipts. The goal is interoperability across tooling and implementations.
 
@@ -67,18 +65,18 @@ The Agreements Protocol is technology‑neutral with respect to blockchain netwo
 
 This document specifies:
 
- * a data model for agreement templates and instances;  
- * a variable model and interpolation rules;  
- * content representations based on Markdown and MDAST;  
- * an execution model based on a deterministic finite state machine (DFSM);  
- * a packaging model for issuance as a W3C Verifiable Credential; and  
- * conformance criteria for producers and consumers.
+ * a data model for agreement templates and instances
+ * a variable model and interpolation rules
+ * content representations based on Markdown and MDAST
+ * an execution model based on a deterministic finite state machine (DFSM)
+ * a packaging model for issuance as a W3C Verifiable Credential
+ * conformance criteria for producers and consumers
 
 This document does not specify:
 
-* legal enforceability requirements;  
-* user interface requirements;  
-* specific blockchain network requirements beyond informative bindings provided in annexes.
+* legal enforceability requirements
+* user interface requirements
+* specific blockchain network requirements beyond informative bindings provided in annexes
 
 ---
 
@@ -134,12 +132,12 @@ An implementation conforms to this specification if it satisfies all MUST‑leve
 
 4.2. Roles
 
- * Producer: A conforming producer MUST generate agreement templates and instances that satisfy the schema requirements defined in Clauses 6 through 11\.  
+ * Producer: A conforming producer MUST generate agreement templates and instances that satisfy the schema requirements defined in Clauses 6 through 11.  
  * Consumer: A conforming consumer MUST validate agreement instances according to Clauses 6 through 11 and the conformance statements in this clause.
 
 4.3. Document processing
 
- * A conforming processor MUST treat the key words “MUST”, “MUST NOT”, “REQUIRED”, “SHALL”, “SHALL NOT”, “SHOULD”, “SHOULD NOT”, “RECOMMENDED”, “MAY”, and “OPTIONAL” as described in RFC 2119\.  
+ * A conforming processor MUST treat the key words “MUST”, “MUST NOT”, “REQUIRED”, “SHALL”, “SHALL NOT”, “SHOULD”, “SHOULD NOT”, “RECOMMENDED”, “MAY”, and “OPTIONAL” as described in RFC 2119.  
  * A conforming processor MUST reject inputs that fail schema validation.  
  * Interpolation of variables in content SHALL NOT change the underlying variable definitions.
 
@@ -151,12 +149,12 @@ An implementation conforms to this specification if it satisfies all MUST‑leve
 
 The protocol consists of the following components:
 
-* Metadata (Clause 6);  
-* Variables (Clause 7);  
-* Content representation (Clause 8);  
-* Execution model (Clause 9);  
-* Template structure (Clause 10);  
-* Verifiable Credential wrapper (Clause 11).
+* Metadata (Clause 6)
+* Variables (Clause 7)
+* Content representation (Clause 8)
+* Execution model (Clause 9)
+* Template structure (Clause 10)
+* Verifiable Credential wrapper (Clause 11)
 
 5.2. Example
 
@@ -172,7 +170,7 @@ Metadata provides identification and context for agreement templates and instanc
 
 6.2. Requirements
 
-6.2.1. A template or instance metadata object SHALL be a JSON object with the properties defined in Table 1\.
+6.2.1. A template or instance metadata object SHALL be a JSON object with the properties defined in Table 1.
 
 6.2.2. Properties identified as REQUIRED in Table 1 MUST be present.
 
@@ -206,7 +204,7 @@ Variables provide typed inputs that can be referenced throughout an agreement.
 
 7.2. Requirements
 
-7.2.1. A variables array SHALL contain objects with the properties defined in Table 2\.  
+7.2.1. A variables array SHALL contain objects with the properties defined in Table 2.  
 7.2.2. Each variable id MUST be unique within a template.  
 7.2.3. A variable type MUST be one of: string, number, address, dateTime. Additional types MAY be defined by profiles.  
 7.2.4. Validation rules MAY be provided using the validation object (e.g., required, min, max, pattern).
@@ -267,7 +265,7 @@ States SHALL be an array of strings naming each lifecycle state (e.g., `PENDING_
 
 9.4. Inputs
 
-Inputs SHALL be a map of input definitions, each including: id, type, displayName, description; and MAY include: schema, value, signer.
+Inputs SHALL be a map of input definitions, each including: id, type, displayName, description, and MAY include: schema, value, signer.
 
 9.5. Transitions
 
@@ -297,7 +295,7 @@ An agreement template or instance MAY be packaged within a W3C Verifiable Creden
 11.2. Requirements
 
 11.2.1. When packaged as a VC, the credentialSubject SHALL carry the agreement payload.  
-11.2.2. Proofs MAY use EIP‑712; issuers and verification methods SHALL be expressed according to the VC Data Model.
+11.2.2. Proofs MAY use EIP‑712, issuers and verification methods SHALL be expressed according to the VC Data Model.
 
 ---
 
