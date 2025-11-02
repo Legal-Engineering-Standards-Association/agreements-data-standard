@@ -74,9 +74,9 @@ This document specifies:
 
 This document does not specify:
 
-* legal enforceability requirements
-* user interface requirements
-* specific blockchain network requirements beyond informative bindings provided in annexes
+ * legal enforceability requirements
+ * user interface requirements
+ * specific blockchain network requirements beyond informative bindings provided in annexes
 
 ---
 
@@ -628,7 +628,7 @@ D.3.1. Contexts and types
  * `type` SHOULD include `VerifiableCredential` and a domain‑specific type such as `AgreementCredential`.
 
 D.3.2. Proof suites  
- * Recommended: `EcdsaSecp256k1RecoverySignature2020` for EVM ecosystems; `Ed25519Signature2020` for Ed25519 ecosystems.  
+ * Recommended: `EcdsaSecp256k1RecoverySignature2020` for EVM ecosystems, `Ed25519Signature2020` for Ed25519 ecosystems.  
  * Issuers MUST include `verificationMethod` identifiers that resolve under the issuer DID.
 
 D.3.3. Revocation and status
@@ -741,38 +741,38 @@ This guide outlines the minimum checks a producer or consumer implementation SHO
 
 ### F.2. Producer implementation checklist
 
-1. **Schema validation** — Validate the full template JSON against the schema in Annex B before publication.
+1. **Schema validation**: Validate the full template JSON against the schema in Annex B before publication.
 
-2. **Unique identifiers** — Ensure `metadata.id` and `metadata.templateId` are globally unique and follow DID patterns.
+2. **Unique identifiers**: Ensure `metadata.id` and `metadata.templateId` are globally unique and follow DID patterns.
 
-3. **Variable references** — Verify every variable used in Markdown or MDAST content exists in the `variables` array.
+3. **Variable references**: Verify every variable used in Markdown or MDAST content exists in the `variables` array.
 
-4. **Execution model integrity** — Confirm that every transition references valid states and that all states appear in at least one transition path.
+4. **Execution model integrity**: Confirm that every transition references valid states and that all states appear in at least one transition path.
 
-5. **Versioning** — Increment `metadata.version` according to semantic versioning when schema or content changes.
+5. **Versioning**: Increment `metadata.version` according to semantic versioning when schema or content changes.
 
-6. **Digital signatures** — Use EIP‑712 or equivalent proof mechanisms consistent with the selected interoperability profile.
+6. **Digital signatures**: Use EIP‑712 or equivalent proof mechanisms consistent with the selected interoperability profile.
 
 ### F.3. Consumer implementation checklist
 
-1. **Schema validation** — Validate incoming instances and templates using JSON Schema draft‑2020‑12.
+1. **Schema validation**: Validate incoming instances and templates using JSON Schema draft‑2020‑12.
 
 2. **Integrity checks** — Compute a deterministic hash (e.g., SHA‑256 over canonical JSON) to detect tampering.
 
-3. **State transitions** — Evaluate DFSM transitions deterministically; reject any execution trace with undefined states or missing inputs.
+3. **State transitions**: Evaluate DFSM transitions deterministically; reject any execution trace with undefined states or missing inputs.
 
-4. **Proof verification** — Verify signatures using declared algorithm and signer identifiers; ensure recovered identifiers match the expected DID or address.
+4. **Proof verification**: Verify signatures using declared algorithm and signer identifiers; ensure recovered identifiers match the expected DID or address.
 
-5. **Credential validation** — When using VC packaging, perform full VC proof verification per W3C guidelines, including checking revocation and status endpoints.
+5. **Credential validation**: When using VC packaging, perform full VC proof verification per W3C guidelines, including checking revocation and status endpoints.
 
-6. **Replay protection** — Bind proofs to `metadata.id` and `createdAt` and reject replays in incompatible contexts.
+6. **Replay protection**: Bind proofs to `metadata.id` and `createdAt` and reject replays in incompatible contexts.
 
 ### F.4. Conformance testing approach
 
 Implementers MAY create automated test suites using JSON Schema validation and scenario tests. Recommended structure:
 
- * **Schema tests:** validate all examples in Annex E; verify negative tests with intentionally invalid data.  
- * **Execution tests:** simulate transitions for example DFSMs; confirm that invalid input sets are rejected.  
+ * **Schema tests:** validate all examples in Annex E, verify negative tests with intentionally invalid data.  
+ * **Execution tests:** simulate transitions for example DFSMs, confirm that invalid input sets are rejected.  
  * **Credential tests:** verify that VC wrappers pass JSON Schema validation and signature verification.  
  * **Profile tests:** ensure compliance with selected interoperability profiles (Annex D) using specific key types and DID methods.
 
