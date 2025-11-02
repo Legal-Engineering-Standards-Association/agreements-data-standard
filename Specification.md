@@ -8,7 +8,7 @@ This document specifies the Signet Agreements Protocol, a JSON-based data standa
 
 | Version | Date | Status | Notes |
 | ----- | ----- | ----- | ----- |
-| 1.0.0-draft | 2025-11-01 | Draft | Initial draft converted to Community Specification format, including full schema annexes and interoperability profiles. |
+| 1.0.0-draft | 2025-11-01 | Draft | Initial draft converted to Community Specification format,<br>including full schema annexes and interoperability profiles. |
 
 ### Version: 1.0.0-draft (2025-11-01)
 
@@ -338,22 +338,20 @@ This annex is normative. All schemas use JSON Schema draft‑2020‑12.
   "title": "Agreements Protocol — Common Definitions",  
   "type": "object",  
   "$defs": {  
-    "did": { "type": "string", "pattern": "^did:\[a-z0-9\]+:.\[^  
-\]\*$" },  
-    "didTemplate": { "type": "string", "pattern": "^did:template:.\[^  
-\]\*$" },  
+    "did": { "type": "string", "pattern": "^did:([a-z0-9]+):([a-zA-Z0-9.]+)$" },
+    "didTemplate": { "type": "string", "pattern": "^did:template:([a-zA-Z0-9.]]+)$" },
     "isoDateTime": { "type": "string", "format": "date-time" },  
-    "address": { "type": "string", "pattern": "^0x\[a-fA-F0-9\]{40}$" },  
+    "address": { "type": "string", "pattern": "^0x[a-fA-F0-9]{40}$" },  
     "mdastNode": {  
       "type": "object",  
-      "required": \["type"\],  
+      "required": ["type"],  
       "properties": {  
         "type": { "type": "string" },  
         "value": { "type": "string" },  
         "depth": { "type": "integer", "minimum": 1 },  
         "children": {  
           "type": "array",  
-          "items": { "$ref": "\#/$defs/mdastNode" }  
+          "items": { "$ref": "#/$defs/mdastNode" }  
         },  
         "id": { "type": "string" },  
         "property": { "type": "string" }  
@@ -368,208 +366,212 @@ This annex is normative. All schemas use JSON Schema draft‑2020‑12.
 
 ```JSON
 {  
-  "$id": "https://example.org/schemas/metadata.schema.json",  
-  "$schema": "https://json-schema.org/draft/2020-12/schema",  
-  "title": "Agreements Protocol — Metadata",  
-  "type": "object",  
-  "required": \["id", "templateId", "version", "createdAt", "name", "author", "description"\],  
-  "properties": {  
-    "id": { "$ref": "common.defs.json\#/$defs/did", "description": "Unique identifier for the agreement instance" },  
-    "templateId": { "$ref": "common.defs.json\#/$defs/didTemplate", "description": "Identifier for the template type" },  
-    "version": { "type": "string" },  
-    "createdAt": { "$ref": "common.defs.json\#/$defs/isoDateTime" },  
-    "name": { "type": "string" },  
-    "author": { "type": "string" },  
-    "description": { "type": "string" }  
-  },  
-  "additionalProperties": true  
+  "$id": "https://example.org/schemas/metadata.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Agreements Protocol — Metadata",
+  "type": "object",
+  "required": ["id", "templateId", "version", "createdAt", "name", "author", "description"],
+  "properties": {
+    "id": { "$ref": "common.defs.json#/$defs/did", "description": "Unique identifier for the agreement instance" },
+    "templateId": { "$ref": "common.defs.json#/$defs/didTemplate", "description": "Identifier for the template type" },
+    "version": { "type": "string" },
+    "createdAt": { "$ref": "common.defs.json#/$defs/isoDateTime" },
+    "name": { "type": "string" },
+    "author": { "type": "string" },
+    "description": { "type": "string" }
+  },
+  "additionalProperties": true
 }
 ```
 
 ### B.3. Variables schema
 
 ```JSON
-{  
-  "$id": "https://example.org/schemas/variables.schema.json",  
-  "$schema": "https://json-schema.org/draft/2020-12/schema",  
-  "title": "Agreements Protocol — Variables",  
-  "type": "array",  
-  "items": {  
-    "type": "object",  
-    "required": \["id", "type", "name", "description"\],  
-    "properties": {  
-      "id": { "type": "string", "description": "Unique identifier for the variable" },  
-      "type": { "type": "string", "enum": \["string", "number", "address", "dateTime"\], "description": "Data type of the variable" },  
-      "name": { "type": "string" },  
-      "description": { "type": "string" },  
-      "validation": {  
-        "type": "object",  
-        "properties": {  
-          "required": { "type": "boolean" },  
-          "min": { "type": "number" },  
-          "max": { "type": "number" },  
-          "pattern": { "type": "string" },  
-          "minLength": { "type": "integer", "minimum": 0 },  
-          "maxLength": { "type": "integer", "minimum": 0 }  
-        },  
-        "additionalProperties": true  
-      }  
-    },  
-    "additionalProperties": true  
-  }  
+{
+  "$id": "https://example.org/schemas/variables.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Agreements Protocol — Variables",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": ["id", "type", "name", "description"],
+    "properties": {
+      "id": { "type": "string", "description": "Unique identifier for the variable" },
+      "type": {
+        "type": "string",
+        "enum": ["string", "number", "address", "dateTime"],
+        "description": "Data type of the variable"
+      },
+      "name": { "type": "string" },
+      "description": { "type": "string" },
+      "validation": {
+        "type": "object",
+        "properties": {
+          "required": { "type": "boolean" },
+          "min": { "type": "number" },
+          "max": { "type": "number" }, 
+          "pattern": { "type": "string" },
+          "minLength": { "type": "integer", "minimum": 0 },
+          "maxLength": { "type": "integer", "minimum": 0 } 
+        },
+        "additionalProperties": true
+      }
+    },
+    "additionalProperties": true
+  }
 }
 ```
 
 ### B.4. Content schema
 
 ```JSON
-{  
-  "$id": "https://example.org/schemas/content.schema.json",  
-  "$schema": "https://json-schema.org/draft/2020-12/schema",  
-  "title": "Agreements Protocol — Content",  
-  "type": "object",  
-  "required": \["type", "data"\],  
-  "properties": {  
-    "type": { "type": "string", "enum": \["mdast", "md"\], "description": "Content format type" },  
-    "data": {  
-      "oneOf": \[  
-        {  
-          "type": "string",  
-          "description": "Markdown source",  
-          "deprecated": false  
-        },  
-        {  
-          "$ref": "common.defs.json\#/$defs/mdastNode",  
-          "description": "MDAST root node",  
-          "examples": \[ { "type": "root", "children": \[\] } \]  
-        }  
-      \]  
-    }  
-  },  
-  "additionalProperties": false  
+{
+  "$id": "https://example.org/schemas/content.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Agreements Protocol — Content",
+  "type": "object",
+  "required": ["type", "data"],
+  "properties": {
+    "type": { "type": "string", "enum": ["mdast", "md"], "description": "Content format type" },
+    "data": {
+      "oneOf": [
+        { 
+          "type": "string",
+          "description": "Markdown source",
+          "deprecated": false
+        },
+        { 
+          "$ref": "common.defs.json#/$defs/mdastNode",
+          "description": "MDAST root node",
+          "examples": [ { "type": "root", "children": [] } ]
+        }
+      ]
+    }
+  }, 
+  "additionalProperties": false
 }
 ```
 
 ### B.5. Execution (DFSM) schema
 
 ```JSON
-{  
-  "$id": "https://example.org/schemas/execution-dfsm.schema.json",  
-  "$schema": "https://json-schema.org/draft/2020-12/schema",  
-  "title": "Agreements Protocol — DFSM Execution",  
-  "type": "object",  
-  "required": \["states", "inputs", "transitions"\],  
-  "properties": {  
-    "states": { "type": "array", "items": { "type": "string" }, "minItems": 1 },  
-    "inputs": {  
-      "type": "object",  
-      "additionalProperties": {  
-        "type": "object",  
-        "required": \["id", "type", "displayName", "description"\],  
-        "properties": {  
-          "id": { "type": "string" },  
-          "type": { "type": "string" },  
-          "schema": { "type": "string" },  
-          "displayName": { "type": "string" },  
-          "description": { "type": "string" },  
-          "value": { "type": "object" },  
-          "signer": { "type": "string" }  
-        },  
-        "additionalProperties": true  
-      }  
-    },  
-    "transitions": {  
-      "type": "array",  
-      "minItems": 1,  
-      "items": {  
-        "type": "object",  
-        "required": \["from", "to", "conditions"\],  
-        "properties": {  
-          "from": { "type": "string" },  
-          "to": { "type": "string" },  
-          "conditions": {  
-            "type": "array",  
-            "minItems": 1,  
-            "items": {  
-              "type": "object",  
-              "required": \["type"\],  
-              "properties": {  
-                "type": { "type": "string", "enum": \["isValid"\] },  
-                "inputs": { "type": "array", "items": { "type": "string" }, "minItems": 1 }  
-              },  
-              "additionalProperties": true  
-            }  
-          }  
-        },  
-        "additionalProperties": true  
-      }  
-    }  
-  },  
-  "additionalProperties": false  
+{
+  "$id": "https://example.org/schemas/execution-dfsm.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Agreements Protocol — DFSM Execution",
+  "type": "object",
+  "required": ["states", "inputs", "transitions"],
+  "properties": {
+    "states": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+    "inputs": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["id", "type", "displayName", "description"],
+        "properties": {
+          "id": { "type": "string" },
+          "type": { "type": "string" },
+          "schema": { "type": "string" },
+          "displayName": { "type": "string" },
+          "description": { "type": "string" },
+          "value": { "type": "object" },
+          "signer": { "type": "string" }
+        },
+        "additionalProperties": true
+      }
+    },
+    "transitions": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["from", "to", "conditions"],
+        "properties": {
+          "from": { "type": "string" },
+          "to": { "type": "string" },
+          "conditions": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "required": ["type"],
+              "properties": {
+                "type": { "type": "string", "enum": ["isValid"] },
+                "inputs": { "type": "array", "items": { "type": "string" }, "minItems": 1 }
+              },
+              "additionalProperties": true
+            }
+          }
+        }, 
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": false
 }
 ```
 
 ### B.6. Execution wrapper schema
 
 ```JSON
-{  
-  "$id": "https://example.org/schemas/execution.schema.json",  
-  "$schema": "https://json-schema.org/draft/2020-12/schema",  
-  "title": "Agreements Protocol — Execution Wrapper",  
-  "type": "object",  
-  "required": \["type", "data"\],  
-  "properties": {  
-    "type": { "type": "string", "enum": \["dfsm"\] },  
-    "data": { "$ref": "execution-dfsm.schema.json" }  
-  },  
-  "additionalProperties": false  
+{
+  "$id": "https://example.org/schemas/execution.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Agreements Protocol — Execution Wrapper",
+  "type": "object",
+  "required": ["type", "data"],
+  "properties": {
+    "type": { "type": "string", "enum": ["dfsm"] },
+    "data": { "$ref": "execution-dfsm.schema.json" }
+  },
+  "additionalProperties": false
 }
 ```
 
 ### **B.7. Template schema**
 
 ```JSON
-{  
-  "$id": "https://example.org/schemas/template.schema.json",  
-  "$schema": "https://json-schema.org/draft/2020-12/schema",  
-  "title": "Agreements Protocol — Template",  
-  "type": "object",  
-  "required": \["metadata", "variables", "content", "execution"\],  
-  "properties": {  
-    "metadata": { "$ref": "metadata.schema.json" },  
-    "variables": { "$ref": "variables.schema.json" },  
-    "content": { "$ref": "content.schema.json" },  
-    "execution": { "$ref": "execution.schema.json" }  
-  },  
-  "additionalProperties": false  
+{
+  "$id": "https://example.org/schemas/template.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Agreements Protocol — Template",
+  "type": "object",
+  "required": ["metadata", "variables", "content", "execution"],
+  "properties": {
+    "metadata": { "$ref": "metadata.schema.json" },
+    "variables": { "$ref": "variables.schema.json" },
+    "content": { "$ref": "content.schema.json" },
+    "execution": { "$ref": "execution.schema.json" }
+  },
+  "additionalProperties": false
 }
 ```
 
 ### B.8. Verifiable Credential wrapper schema (optional)
 
 ```JSON
-{  
-  "$id": "https://example.org/schemas/vc-wrapper.schema.json",  
-  "$schema": "https://json-schema.org/draft/2020-12/schema",  
-  "title": "Agreements Protocol — Verifiable Credential Wrapper",  
-  "type": "object",  
-  "required": \["@context", "type", "issuer", "issuanceDate", "credentialSubject"\],  
-  "properties": {  
-    "@context": { "type": "array", "items": { "type": "string" }, "minItems": 1 },  
-    "type": { "type": "array", "items": { "type": "string" }, "minItems": 1 },  
-    "issuer": { "type": "string" },  
-    "issuanceDate": { "$ref": "common.defs.json\#/$defs/isoDateTime" },  
-    "credentialSubject": {  
-      "type": "object",  
-      "required": \["agreement"\],  
-      "properties": {  
-        "agreement": { "$ref": "template.schema.json" }  
-      },  
-      "additionalProperties": true  
-    },  
-    "proof": { "type": "object" }  
-  },  
-  "additionalProperties": true  
+{
+  "$id": "https://example.org/schemas/vc-wrapper.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Agreements Protocol — Verifiable Credential Wrapper",
+  "type": "object",
+  "required": ["@context", "type", "issuer", "issuanceDate", "credentialSubject"],
+  "properties": {
+    "@context": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+    "type": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+    "issuer": { "type": "string" },
+    "issuanceDate": { "$ref": "common.defs.json#/$defs/isoDateTime" },
+    "credentialSubject": {
+      "type": "object",
+      "required": ["agreement"],
+      "properties": {
+        "agreement": { "$ref": "template.schema.json" }
+      },
+      "additionalProperties": true
+    },
+    "proof": { "type": "object" }
+  },
+  "additionalProperties": true
 }
 ```
 
@@ -641,89 +643,89 @@ This annex is informative. The following examples are consistent with Annex B sc
 ### E.1. Minimal template
 
 ```JSON
-{  
-  "metadata": {  
-    "id": "did:web:agreements.example.org:contracts:basic-consulting:instance-001",  
-    "templateId": "did:web:agreements.example.org:templates:basic-consulting",  
-    "version": "1.0.0",  
-    "createdAt": "2025-10-15T12:34:56Z",  
-    "name": "Basic Consulting Agreement",  
-    "author": "Legal Engineering Standards Association",  
-    "description": "One-hour consulting in exchange for USDC payment."  
-  },  
-  "variables": \[  
-    { "id": "partyB", "type": "string", "name": "Party B", "description": "Counterparty name", "validation": { "required": true, "minLength": 1 } },  
-    { "id": "amount", "type": "number", "name": "USDC Amount", "description": "Payment amount in USDC", "validation": { "required": true, "min": 1 } },  
-    { "id": "partyBAddress", "type": "address", "name": "Party B Address", "description": "Ethereum address", "validation": { "required": true, "pattern": "^0x\[a-fA-F0-9\]{40}$" } }  
-  \],  
-  "content": {  
-    "type": "md",  
-    "data": "\# Agreement
-
-I, Jane Doe, agree to provide :variable{id='partyB'} with one hour of startup business advice. In exchange, :variable{id='partyB'} agrees to transfer :variable{id='amount'} USDC to my Ethereum address 0x1234567890abcdef1234567890abcdef12345678."  
-  },  
-  "execution": {  
-    "type": "dfsm",  
-    "data": {  
-      "states": \["PENDING\_SIGNATURE", "SIGNED"\],  
-      "inputs": {  
-        "sigA": {  
-          "id": "sigA",  
-          "type": "eip712-signature",  
-          "displayName": "Signature Party A",  
-          "description": "EIP-712 signature from Party A",  
-          "schema": "eip712://agreements.example.org/schemas/sigA",  
-          "signer": "0x1234567890abcdef1234567890abcdef12345678"  
-        },  
-        "sigB": {  
-          "id": "sigB",  
-          "type": "eip712-signature",  
-          "displayName": "Signature Party B",  
-          "description": "EIP-712 signature from Party B",  
-          "schema": "eip712://agreements.example.org/schemas/sigB"  
-        }  
-      },  
-      "transitions": \[  
-        { "from": "PENDING\_SIGNATURE", "to": "SIGNED", "conditions": \[ { "type": "isValid", "inputs": \["sigA", "sigB"\] } \] }  
-      \]  
-    }  
-  }  
+{
+  "metadata": {
+    "id": "did:web:agreements.example.org:contracts:basic-consulting:instance-001",
+    "templateId": "did:web:agreements.example.org:templates:basic-consulting",
+    "version": "1.0.0",
+    "createdAt": "2025-10-15T12:34:56Z",
+    "name": "Basic Consulting Agreement",
+    "author": "Legal Engineering Standards Association",
+    "description": "One-hour consulting in exchange for USDC payment."
+  },
+  "variables": [
+    { "id": "partyB", "type": "string", "name": "Party B", "description": "Counterparty name", "validation": { "required": true, "minLength": 1 } },
+    { "id": "amount", "type": "number", "name": "USDC Amount", "description": "Payment amount in USDC", "validation": { "required": true, "min": 1 } },
+    { "id": "partyBAddress", "type": "address", "name": "Party B Address", "description": "Ethereum address", "validation": { "required": true, "pattern": "^0x[a-fA-F0-9]{40}$" } }
+  ],
+  "content": {
+    "type": "md",
+    "data": "# Agreement\n I, Jane Doe, agree to provide :variable{id='partyB'} with one hour of startup business advice. In exchange, :variable{id='partyB'} agrees to transfer :variable{id='amount'} USDC to my Ethereum address 0x1234567890abcdef1234567890abcdef12345678."
+  },
+  "execution": {
+    "type": "dfsm",
+    "data": {
+      "states": ["PENDING_SIGNATURE", "SIGNED"],
+      "inputs": {
+        "sigA": {
+          "id": "sigA",
+          "type": "eip712-signature",
+          "displayName": "Signature Party A",
+          "description": "EIP-712 signature from Party A",
+          "schema": "eip712://agreements.example.org/schemas/sigA",
+          "signer": "0x1234567890abcdef1234567890abcdef12345678"
+        },
+        "sigB": {
+          "id": "sigB",
+          "type": "eip712-signature",
+          "displayName": "Signature Party B",
+          "description": "EIP-712 signature from Party B",
+          "schema": "eip712://agreements.example.org/schemas/sigB"
+        }
+      },
+      "transitions": [
+        { "from": "PENDING_SIGNATURE", "to": "SIGNED", "conditions": [ { "type": "isValid", "inputs": ["sigA", "sigB"] } ] }
+      ]
+    }
+  }
 }
 ```
 
 ### E.2. Example MDAST content
 
 ```JSON
-{  
-  "type": "root",  
-  "children": \[  
-    { "type": "heading", "depth": 1, "children": \[ { "type": "text", "value": "Agreement" } \] },  
-    { "type": "paragraph", "children": \[  
-      { "type": "text", "value": "I, Jane Doe, agree to provide " },  
-      { "type": "variable", "id": "partyB" },  
-      { "type": "text", "value": " with one hour of startup business advice." }  
-    \] }  
-  \]  
+{
+  "type": "root",
+  "children": [
+    { "type": "heading", "depth": 1, "children": [ { "type": "text", "value": "Agreement" } ] },
+    {
+      "type": "paragraph", "children": [
+        { "type": "text", "value": "I, Jane Doe, agree to provide " },
+        { "type": "variable", "id": "partyB" },
+        { "type": "text", "value": " with one hour of startup business advice." }
+      ]
+    }
+  ]
 }
 ```
 
 ### E.3. Verifiable Credential wrapper
 
 ```JSON
-{  
-  "@context": \[  
-    "https://www.w3.org/2018/credentials/v1",  
-    "https://agreements.example.org/contexts/agreement-v1.json"  
-  \],  
-  "type": \["VerifiableCredential", "AgreementCredential"\],  
-  "issuer": "did:web:issuer.example.org",  
-  "issuanceDate": "2025-10-15T12:45:00Z",  
-  "credentialSubject": {  
-    "id": "did:web:agreements.example.org:holders:partyB",  
-    "agreement": {  
-      "$ref": "https://agreements.example.org/examples/basic-consulting.template.json"  
-    }  
-  }  
+{
+  "@context": [
+    "https://www.w3.org/2018/credentials/v1",
+    "https://agreements.example.org/contexts/agreement-v1.json"
+  ],
+  "type": ["VerifiableCredential", "AgreementCredential"],
+  "issuer": "did:web:issuer.example.org",
+  "issuanceDate": "2025-10-15T12:45:00Z",
+  "credentialSubject": {
+    "id": "did:web:agreements.example.org:holders:partyB",
+    "agreement": {
+      "$ref": "https://agreements.example.org/examples/basic-consulting.template.json"
+    }
+  }
 }
 ```
 
