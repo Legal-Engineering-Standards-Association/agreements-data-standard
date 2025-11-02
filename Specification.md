@@ -786,7 +786,7 @@ The following open-source tools are recommended:
 
 ---
 
-## Annex C. (informative) Change history (informative) Change history
+## Annex C. (informative) Change history
 
  * IP‑001: DFSM to ASM (completed)  
  * IP‑002: MDAST Content Representation (in progress)  
